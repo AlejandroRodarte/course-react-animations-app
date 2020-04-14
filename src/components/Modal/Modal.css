@@ -21,6 +21,26 @@
     animation: closeModal 1s ease-in-out forwards;
 }
 
+/* attached for 1 frame: used for initialization */
+.fade-slide-enter {
+    
+}
+
+/* attached while 'entering' state is active */
+.fade-slide-enter-active {
+    animation: openModal 0.4s ease-in-out forwards;
+}
+
+/* attached for 1 frame: used for initialization */
+.fade-slide-exit {
+
+}
+
+/* attached while 'exiting' state is active */
+.fade-slide-exit-active {
+    animation: closeModal 1s ease-in-out forwards;
+}
+
 @keyframes openModal {
 
     0% {
