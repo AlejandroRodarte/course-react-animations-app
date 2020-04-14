@@ -6,18 +6,28 @@ import Backdrop from "./components/Backdrop/Backdrop";
 import List from "./components/List/List";
 
 class App extends Component {
+
+  state = {
+    showModal: false
+  };
+
+  modalClosedHandler = () => this.setState(() => ({ showModal: false }));
+  
+  modalOpenedHandler = () => this.setState(() => ({ showModal: true }));
+
   render() {
     return (
       <div className="App">
         <h1>React Animations</h1>
-        <Modal />
-        <Backdrop />
-        <button className="Button">Open Modal</button>
+        <Modal closed={ this.modalClosedHandler } show={ this.state.showModal } />
+        <Backdrop closed={ this.modalClosedHandler } show={ this.state.showModal } />
+        <button className="Button" onClick={ this.modalOpenedHandler }>Open Modal</button>
         <h3>Animating Lists</h3>
         <List />
       </div>
     );
   }
+
 }
 
 export default App;
