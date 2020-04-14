@@ -4,16 +4,17 @@ import './Modal.css';
 
 const modal = (props) => {
 
-    const cssClasses = ['Modal'];
-
-    if (props.show) {
-        cssClasses.push('ModalOpen');
-    } else {
-        cssClasses.push('ModalClosed');
-    }
+    const cssClasses = [
+        'Modal',
+        props.show === 'entering'
+        ? 'ModalOpen' :
+        props.show === 'exiting'
+        ? 'ModalClosed' :
+        null
+    ];
 
     return (
-        <div className={ cssClasses.join(' ') + ' blue' }>
+        <div className={ cssClasses.join(' ') }>
             <h1>A Modal</h1>
             <button className="Button" onClick={props.closed}>Dismiss</button>
         </div>

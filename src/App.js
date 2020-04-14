@@ -58,7 +58,17 @@ class App extends Component {
 
         </Transition>
 
-        { this.state.showModal && <Modal show closed={ this.modalClosedHandler } /> }
+        <Transition 
+          in={ this.state.showModal }
+          timeout={ 300 }
+          mountOnEnter
+          unmountOnExit
+        >
+          {
+            state => <Modal show={ state } closed={ this.modalClosedHandler } />
+          }
+        </Transition>
+
         { this.state.showModal && <Backdrop show closed={ this.modalClosedHandler } /> }
 
         <button 
